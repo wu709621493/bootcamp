@@ -1,50 +1,79 @@
-"""
-Utilities for parsing nucleic acid sequences.
-"""
+"""Utilities for parsing nucleic acid sequences."""
 
-def dna_to_rna(seq):
-    """
-    Convert a DNA sequence to RNA.
-    """
+from __future__ import annotations
 
-    # Determine if original sequence was uppercase
-    seq_upper = seq.isupper()
+_DNA_BASES = frozenset("ACGTacgt")
+_RNA_TRANS = str.maketrans("Tt", "Uu")
+_RNA_COMPLEMENT_TRANS = str.maketrans("ACGTacgt", "UGCAugca")
 
-    # Convert to lowercase
-    seq = seq.lower()
 
-    # Swap out 't' for 'u'
-    seq = seq.replace('t', 'u')
+def _normalized_dna(seq: str) -> str:
+    """Return *seq* in a consistent case for downstream operations."""
 
-    # Return upper or lower case RNA sequence
-    if seq_upper:
+    if seq.isupper():
         return seq.upper()
-    else:
-        return seq
+    return seq.lower()
 
 
-def reverse_rna_complement(seq):
+def _validate_dna(seq: str) -> None:
+    """Ensure *seq* contains only canonical DNA bases."""
+
+    invalid = set(seq) - _DNA_BASES
+    if invalid:
+        invalid_chars = "', '".join(sorted(invalid))
+        raise ValueError(
+            f"Sequence contains invalid DNA characters: '{invalid_chars}'."
+        )
+
+
+def dna_to_rna(seq: str) -> str:
+    """Convert a DNA sequence to RNA.
+
+    Parameters
+    ----------
+    seq
+        DNA sequence consisting solely of the characters ``A``, ``C``, ``G``,
+        and ``T`` (case-insensitive).
+
+    Returns
+    -------
+    str
+        RNA sequence where thymine is replaced by uracil. Mixed-case input is
+        normalised to lower case to mirror the historical behaviour of this
+        function.
+
+    Raises
+    ------
+    ValueError
+        If *seq* contains characters other than canonical DNA bases.
     """
-    Convert a DNA sequence into its reverse complement as RNA.
+
+    _validate_dna(seq)
+    normalized = _normalized_dna(seq)
+    return normalized.translate(_RNA_TRANS)
+
+
+def reverse_rna_complement(seq: str) -> str:
+    """Convert a DNA sequence into its reverse complement as RNA.
+
+    Parameters
+    ----------
+    seq
+        DNA sequence consisting solely of the characters ``A``, ``C``, ``G``,
+        and ``T`` (case-insensitive).
+
+    Returns
+    -------
+    str
+        Reverse complement of *seq* expressed as RNA.
+
+    Raises
+    ------
+    ValueError
+        If *seq* contains characters other than canonical DNA bases.
     """
 
-    # Determine if original was uppercase
-    seq_upper = seq.isupper()
-
-    # Reverse sequence
-    seq = seq[::-1]
-
-    # Convert to upper
-    seq = seq.upper()
-
-    # Compute complement
-    seq = seq.replace('A', 'u')
-    seq = seq.replace('T', 'a')
-    seq = seq.replace('G', 'c')
-    seq = seq.replace('C', 'g')
-
-    # Return result
-    if seq_upper:
-        return seq.upper()
-    else:
-        return seq
+    _validate_dna(seq)
+    normalized = _normalized_dna(seq)
+    reversed_seq = normalized[::-1]
+    return reversed_seq.translate(_RNA_COMPLEMENT_TRANS)
