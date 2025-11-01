@@ -4,6 +4,7 @@
 
 from .na_utils import *
 from .bioinfo_dicts import *
+from .mendota import load_lake_mendota_lai
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
