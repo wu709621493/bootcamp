@@ -1,11 +1,27 @@
-"""
-Utilities for parsing nucleic acid sequences.
-"""
+"""Utilities for parsing nucleic acid sequences."""
 
-def dna_to_rna(seq):
-    """
-    Convert a DNA sequence to RNA.
-    """
+from typing import Set
+
+
+_VALID_DNA_BASES: Set[str] = {"A", "C", "G", "T"}
+
+
+def _validate_dna_sequence(seq: str) -> None:
+    """Validate that *seq* contains only canonical DNA bases."""
+
+    if not isinstance(seq, str):
+        raise TypeError("DNA sequences must be provided as a string.")
+
+    invalid_bases = {base for base in set(seq.upper()) if base not in _VALID_DNA_BASES}
+    if invalid_bases:
+        invalid_str = ", ".join(sorted(invalid_bases))
+        raise ValueError(f"Invalid DNA base(s) found: {invalid_str}")
+
+
+def dna_to_rna(seq: str) -> str:
+    """Convert a DNA sequence to RNA after validating the input."""
+
+    _validate_dna_sequence(seq)
 
     # Determine if original sequence was uppercase
     seq_upper = seq.isupper()
@@ -23,10 +39,10 @@ def dna_to_rna(seq):
         return seq
 
 
-def reverse_rna_complement(seq):
-    """
-    Convert a DNA sequence into its reverse complement as RNA.
-    """
+def reverse_rna_complement(seq: str) -> str:
+    """Convert a DNA sequence into its reverse complement as RNA."""
+
+    _validate_dna_sequence(seq)
 
     # Determine if original was uppercase
     seq_upper = seq.isupper()
