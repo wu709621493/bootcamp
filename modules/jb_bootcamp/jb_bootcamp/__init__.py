@@ -6,6 +6,7 @@ from .na_utils import *
 from .bioinfo_dicts import *
 from .prime_utils import *
 from .fluid_dynamics import *
+from .drug_safety import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
