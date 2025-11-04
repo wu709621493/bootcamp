@@ -41,3 +41,10 @@ def test_fly_profiles_are_not_applicable():
 def test_unknown_stage_alias_raises_value_error():
     with pytest.raises(ValueError):
         drug_safety_profile_check("acetaminophen", species="human", pregnancy_stage="late")
+
+
+def test_na_stage_alias_maps_to_default_profile():
+    profile = drug_safety_profile_check("caffeine", species="fly", pregnancy_stage="N/A")
+
+    assert profile.status == "not_applicable"
+    assert profile.pregnancy_stage is None

@@ -123,6 +123,10 @@ def _normalise_stage(stage: str | None) -> str | None:
     }
 
     value = value.replace("trimester", "").strip()
+
+    if value in {"na", "n/a", "none", "not applicable", "unspecified"}:
+        return None
+
     normalised = aliases.get(value)
     if normalised is None:
         raise ValueError(
@@ -137,7 +141,19 @@ def drug_safety_profile_check(
     species: str = "human",
     pregnancy_stage: str | None = None,
 ) -> DrugSafetyProfile:
-    """Look up safety guidance for a drug during pregnancy."""
+    """Look up safety guidance for a drug during pregnancy.
+
+    Parameters
+    ----------
+    drug:
+        Name of the medication to query. Case-insensitive.
+    species:
+        Target species for the safety recommendation. Defaults to ``"human"``.
+    pregnancy_stage:
+        Trimester indicator (``"first"``, ``"second"``, ``"third"``) or a synonym
+        for ``None`` such as ``"n/a"`` or ``"not applicable"`` to request the
+        stage-agnostic guidance.
+    """
 
     if not drug or drug.strip() == "":
         raise ValueError("drug must be a non-empty string.")
