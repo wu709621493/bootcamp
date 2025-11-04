@@ -7,6 +7,7 @@ from .bioinfo_dicts import *
 from .prime_utils import *
 from .fluid_dynamics import *
 from .drug_safety import *
+from .alien_culture import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
