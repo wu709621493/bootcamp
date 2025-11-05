@@ -8,6 +8,7 @@ from .prime_utils import *
 from .fluid_dynamics import *
 from .drug_safety import *
 from .alien_culture import *
+from .folding_energy import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
