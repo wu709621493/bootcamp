@@ -14,7 +14,7 @@ if str(PACKAGE_ROOT) not in sys.path:
     sys.path.insert(0, str(PACKAGE_ROOT))
 
 
-from jb_bootcamp.zeta_function import riemann_zeta
+from jb_bootcamp.zeta_function import find_first_riemann_zero, riemann_zeta
 
 
 def test_riemann_zeta_matches_known_even_values():
@@ -43,4 +43,12 @@ def test_invalid_parameters_raise_value_error():
         riemann_zeta(2, tolerance=-1.0)
     with pytest.raises(ValueError):
         riemann_zeta(2, max_terms=0)
+
+
+def test_first_riemann_zero_search():
+    zero = find_first_riemann_zero()
+    assert zero.real == pytest.approx(0.5, abs=1e-12)
+    assert zero.imag == pytest.approx(14.134725141, rel=1e-6)
+    zeta_value = riemann_zeta(zero, tolerance=1e-14, max_terms=512)
+    assert abs(zeta_value) < 5e-9
 
