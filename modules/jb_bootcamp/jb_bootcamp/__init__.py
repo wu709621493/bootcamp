@@ -11,6 +11,7 @@ from .alien_culture import *
 from .folding_energy import *
 from .symmetry_reduction import *
 from .zeta_function import *
+from .tamagawa_network import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
