@@ -14,6 +14,7 @@ from .zeta_function import *
 from .tamagawa_network import *
 from .ethics import *
 from .cosmic_tracker import *
+from .chinese_traditional_medicine import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
