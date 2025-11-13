@@ -6,6 +6,7 @@ from jb_bootcamp.cosmic_tracker import (
     CosmicCandidate,
     filter_candidates,
     load_candidates,
+    search_structures,
     summarize_by_instrumentation,
 )
 
@@ -50,3 +51,18 @@ def test_summarize_by_instrumentation(dataset: tuple[CosmicCandidate, ...]) -> N
     assert summary["Wide-field near-infrared imager"][0].mission_context.startswith(
         "Distributed swarm"
     )
+
+
+def test_search_structures_default(dataset: tuple[CosmicCandidate, ...]) -> None:
+    suspects = search_structures(dataset)
+    assert [candidate.candidate for candidate in suspects] == [
+        "Non-Gaussianity in large-scale structure"
+    ]
+
+
+def test_search_structures_custom_keywords(
+    dataset: tuple[CosmicCandidate, ...]
+) -> None:
+    suspects = search_structures(dataset, keywords=("gravitational",))
+    names = {candidate.candidate for candidate in suspects}
+    assert names == {"Primordial gravitational wave spectrum"}

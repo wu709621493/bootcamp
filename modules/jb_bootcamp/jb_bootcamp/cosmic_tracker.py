@@ -13,6 +13,7 @@ __all__ = [
     "load_candidates",
     "filter_candidates",
     "summarize_by_instrumentation",
+    "search_structures",
 ]
 
 _DATA_FILENAME = "string_theory_observational_candidates.csv"
@@ -127,6 +128,47 @@ def summarize_by_instrumentation(
         grouped.setdefault(candidate.instrumentation, []).append(candidate)
 
     return {key: tuple(value) for key, value in grouped.items()}
+
+
+def search_structures(
+    candidates: Sequence[CosmicCandidate],
+    *,
+    keywords: str | Iterable[str] | None = None,
+) -> tuple[CosmicCandidate, ...]:
+    """Return candidates associated with astronomical structures.
+
+    Parameters
+    ----------
+    candidates:
+        Iterable of :class:`CosmicCandidate` records to search through.
+    keywords:
+        Optional override for the substrings that identify a structure.
+        When omitted, defaults to searching for both "structure" and
+        "structures".  Matching is performed case-insensitively across all
+        text fields of each candidate.
+
+    Returns
+    -------
+    tuple[CosmicCandidate, ...]
+        Candidates where at least one keyword appears in any field.
+
+    Raises
+    ------
+    ValueError
+        If ``keywords`` is provided but does not contain any non-empty
+        strings.
+    """
+
+    default_keywords = ("structure", "structures")
+    normalised_keywords = _normalise_keywords(keywords or default_keywords)
+    if not normalised_keywords:
+        raise ValueError("At least one keyword is required to search structures.")
+
+    return tuple(
+        candidate
+        for candidate in candidates
+        if _contains_keyword(candidate, normalised_keywords)
+    )
 
 
 def _resolve_dataset_path(path: str | Path | None) -> Path:
