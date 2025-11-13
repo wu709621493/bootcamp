@@ -15,6 +15,7 @@ from .tamagawa_network import *
 from .ethics import *
 from .cosmic_tracker import *
 from .chinese_traditional_medicine import *
+from .fermented_foods import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
