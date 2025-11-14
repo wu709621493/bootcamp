@@ -16,6 +16,7 @@ from .ethics import *
 from .cosmic_tracker import *
 from .chinese_traditional_medicine import *
 from .fermented_foods import *
+from .rocket_landing import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
