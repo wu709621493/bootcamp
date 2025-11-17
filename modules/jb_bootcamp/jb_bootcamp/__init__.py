@@ -18,6 +18,7 @@ from .chinese_traditional_medicine import *
 from .fermented_foods import *
 from .rocket_landing import *
 from .drilling import *
+from .conflict_hotzones import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
