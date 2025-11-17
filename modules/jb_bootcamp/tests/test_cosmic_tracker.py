@@ -42,6 +42,13 @@ def test_filter_by_signature_and_instrument(dataset: tuple[CosmicCandidate, ...]
     ]
 
 
+def test_filter_candidates_rejects_non_string_iterable(
+    dataset: tuple[CosmicCandidate, ...]
+) -> None:
+    with pytest.raises(TypeError):
+        filter_candidates(dataset, mission_context=("Deep field", 42))
+
+
 def test_summarize_by_instrumentation(dataset: tuple[CosmicCandidate, ...]) -> None:
     summary = summarize_by_instrumentation(dataset)
     calorimeter = summary["Large-area cosmic ray calorimeter"]
@@ -66,3 +73,10 @@ def test_search_structures_custom_keywords(
     suspects = search_structures(dataset, keywords=("gravitational",))
     names = {candidate.candidate for candidate in suspects}
     assert names == {"Primordial gravitational wave spectrum"}
+
+
+def test_search_structures_rejects_non_string_keywords(
+    dataset: tuple[CosmicCandidate, ...]
+) -> None:
+    with pytest.raises(TypeError):
+        search_structures(dataset, keywords=["structure", 9.81])

@@ -192,21 +192,46 @@ def _resolve_dataset_path(path: str | Path | None) -> Path:
 
 
 def _normalise_criteria(value: str | Iterable[str] | None) -> set[str]:
+    """Return a case-folded set of ``value`` while validating the input."""
+
     if value is None:
         return set()
     if isinstance(value, str):
         return {value.casefold()}
-    return {item.casefold() for item in value}
+
+    try:
+        iterator = iter(value)
+    except TypeError as exc:  # pragma: no cover - defensive guard
+        raise TypeError("Filter criteria must be a string or iterable of strings.") from exc
+
+    normalised: set[str] = set()
+    for item in iterator:
+        if not isinstance(item, str):
+            raise TypeError("Filter criteria must only contain strings.")
+        normalised.add(item.casefold())
+    return normalised
 
 
 def _normalise_keywords(value: str | Iterable[str] | None) -> tuple[str, ...]:
+    """Return a tuple of normalised keywords while validating the input."""
+
     if value is None:
         return ()
     if isinstance(value, str):
         values = [value]
     else:
-        values = list(value)
-    return tuple(item.casefold() for item in values if item)
+        try:
+            values = list(value)
+        except TypeError as exc:  # pragma: no cover - defensive guard
+            raise TypeError("Keywords must be provided as a string or iterable of strings.") from exc
+
+    normalised: list[str] = []
+    for item in values:
+        if not isinstance(item, str):
+            raise TypeError("Keywords must only contain strings.")
+        if item:
+            normalised.append(item.casefold())
+    return tuple(normalised)
 
 
 def _contains_keyword(candidate: CosmicCandidate, keywords: Iterable[str]) -> bool:
