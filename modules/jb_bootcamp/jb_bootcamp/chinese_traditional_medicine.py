@@ -31,6 +31,7 @@ __all__ = [
     "decode_pattern",
     "decode_sequence",
     "explain_pattern",
+    "patterns_by_pulse",
     "search_patterns",
 ]
 
@@ -561,4 +562,34 @@ def explain_pattern(code: str) -> str:
         f"Treatment principle: {pattern.treatment_principle}"
     )
     return explanation
+
+
+def patterns_by_pulse(pulse_description: str) -> List[TCMPattern]:
+    """Return patterns that mention *pulse_description* in their symptoms.
+
+    The helper is intentionally forgiving with its input.  The lookup is case
+    insensitive, ignores repeated whitespace, and only requires that all query
+    tokens appear within the stored pulse description.  A pulse description is
+    considered any symptom that contains the word ``"pulse"``; other symptoms
+    are ignored.
+    """
+
+    if not isinstance(pulse_description, str):
+        raise TypeError("Pulse description must be a string.")
+
+    tokens = [token for token in pulse_description.casefold().split() if token]
+    if not tokens:
+        return []
+
+    matches: List[TCMPattern] = []
+    for pattern in _PATTERN_DATA.values():
+        for symptom in pattern.key_symptoms:
+            lowered = symptom.casefold()
+            if "pulse" not in lowered:
+                continue
+            if all(token in lowered for token in tokens):
+                matches.append(pattern)
+                break
+
+    return sorted(matches, key=lambda pattern: pattern.code)
 
