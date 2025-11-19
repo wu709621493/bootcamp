@@ -22,6 +22,7 @@ from .conflict_hotzones import *
 from .house_upkeep import *
 from .string_theory import *
 from .multiplication_table import *
+from .go_board import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
