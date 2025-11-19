@@ -1,0 +1,93 @@
+# Configuration profile for Chengdu Shuangliu International Airport (CTU)
+# Context: "药加酒" travel scenario where integrated pharmacy + duty-free services
+# are coordinated with passenger flow and on-airport logistics. Values are
+# expressed in human-readable form to support downstream parsing.
+
+metadata:
+  airport_name: Chengdu Shuangliu International Airport
+  iata_code: CTU
+  icao_code: ZUUU
+  timezone: Asia/Shanghai
+  elevation_m: 495
+  coordinates:
+    lat_deg: 30.5785
+    lon_deg: 103.9471
+
+terminals:
+  - id: T1
+    notes: Legacy terminal used primarily for domestic departures.
+    check_in_counters: 168
+    gates: 46
+    baggage_belts: 7
+  - id: T2
+    notes: Mixed-use terminal for domestic and selected international flights.
+    check_in_counters: 230
+    gates: 64
+    baggage_belts: 10
+
+runways:
+  - id: 02L/20R
+    length_m: 3600
+    surface: concrete
+  - id: 02R/20L
+    length_m: 3600
+    surface: concrete
+
+passenger_flow:
+  peak_hours_local: ["07:30-10:30", "17:30-21:00"]
+  average_daily_pax: 150000
+  security_lanes:
+    t1: 20
+    t2: 30
+  curbside_capacity:
+    ride_hailing_stalls: 140
+    taxi_stalls: 210
+
+pharmacy_and_duty_free:
+  integrated_service_brand: "药加酒"
+  locations:
+    - terminal: T1
+      zone: airside
+      description: Combined over-the-counter pharmacy and spirits outlet adjacent to gates 20-26.
+      cold_chain_storage: true
+    - terminal: T2
+      zone: landside
+      description: Pharmacy counter near security Zone C with express pickup for preorders.
+      cold_chain_storage: true
+  preorder_channels:
+    app: true
+    kiosk: true
+    web: true
+  handling_requirements:
+    temperature_control_celsius: "2-8"
+    controlled_substances_cabinet: true
+    pharmacist_on_duty: true
+
+logistics:
+  landside_warehouse_km_from_terminal: 3.2
+  airside_distribution_minutes:
+    t1: 12
+    t2: 18
+  bonded_storage: true
+  last_mile_partners: ["ZTO", "SF Express"]
+  replenishment_windows_local: ["02:00-04:00", "14:00-16:00"]
+
+health_and_safety:
+  emergency_clinics:
+    - terminal: T1
+      hours: "24/7"
+    - terminal: T2
+      hours: "24/7"
+  vaccination_services: true
+  quarantine_stations: true
+
+it_integration:
+  api_endpoints:
+    preorder_status: "/api/v1/preorder/status"
+    inventory_sync: "/api/v1/inventory/sync"
+  sso_supported: true
+  payment_methods: ["UnionPay", "Alipay", "WeChat Pay", "Visa", "Mastercard"]
+
+notes:
+  - Config focuses on passenger retail logistics; adjust counts during peak travel seasons.
+  - Coordinate with ground handlers for any pharmaceutical cold-chain transfers.
