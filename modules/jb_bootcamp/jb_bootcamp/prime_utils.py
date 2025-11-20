@@ -12,6 +12,8 @@ __all__ = [
     "is_prime",
     "prime_series",
     "twin_prime_pairs",
+    "is_armstrong_number",
+    "armstrong_numbers",
 ]
 
 
@@ -71,3 +73,32 @@ def twin_prime_pairs(limit: int) -> List[Tuple[int, int]]:
         if second - first == 2:
             twin_pairs.append((first, second))
     return twin_pairs
+
+
+def is_armstrong_number(value: int) -> bool:
+    """Return ``True`` when ``value`` is an Armstrong (narcissistic) number.
+
+    The check raises each digit to the power of the total digit count and
+    compares the resulting sum to the original number. Only non-negative
+    integers can satisfy the property; negative inputs always return ``False``.
+    """
+
+    if value < 0:
+        return False
+
+    digits = [int(digit) for digit in str(value)]
+    power = len(digits)
+    return value == sum(digit**power for digit in digits)
+
+
+def armstrong_numbers(limit: int) -> List[int]:
+    """Return Armstrong numbers less than or equal to ``limit``.
+
+    The search starts at zero and stops at ``limit``; negative limits yield an
+    empty list. Results are ordered from smallest to largest.
+    """
+
+    if limit < 0:
+        return []
+
+    return [candidate for candidate in range(limit + 1) if is_armstrong_number(candidate)]
