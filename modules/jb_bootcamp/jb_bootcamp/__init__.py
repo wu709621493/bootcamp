@@ -25,6 +25,7 @@ from .multiplication_table import *
 from .go_board import *
 from .earth_surface_ice import *
 from .demographics import *
+from .boss import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
