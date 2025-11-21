@@ -18,6 +18,7 @@ from .chinese_traditional_medicine import *
 from .fermented_foods import *
 from .rocket_landing import *
 from .drilling import *
+from .drinking_pitch import *
 from .conflict_hotzones import *
 from .house_upkeep import *
 from .string_theory import *
