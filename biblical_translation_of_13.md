@@ -1,0 +1,3 @@
+# B is the biblical translation of 13
+
+The phrase can be unpacked by looking at the most famous chapter numbered **13** in the Bible: *1 Corinthians 13*.  In many English translations the opening line reads, "Love is patient, love is kind," while the King James Version uses "Charity" instead of "Love."  If we treat "B" as a shorthand for a grading rubric—"B" meaning "good"—then "B is the biblical translation of 13" becomes a playful way of saying that chapter 13 translates to the good (or virtuous) quality of **love/charity**.  In other words, when you map the number 13 into a biblical context, you end up with the value of love.
