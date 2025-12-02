@@ -1,6 +1,12 @@
 """Tests for prime utility helpers."""
 
-from jb_bootcamp.prime_utils import armstrong_numbers, is_armstrong_number
+import pytest
+
+from jb_bootcamp.prime_utils import (
+    armstrong_numbers,
+    is_armstrong_number,
+    prime_factorization,
+)
 
 
 def test_is_armstrong_number_truthiness():
@@ -29,3 +35,16 @@ def test_armstrong_numbers_range():
         407,
     ]
     assert armstrong_numbers(-3) == []
+
+
+def test_prime_factorization_of_composite_number():
+    assert prime_factorization(628252) == [2, 2, 17, 9239]
+
+
+def test_prime_factorization_of_prime_number():
+    assert prime_factorization(113) == [113]
+
+
+def test_prime_factorization_rejects_small_inputs():
+    with pytest.raises(ValueError):
+        prime_factorization(1)
