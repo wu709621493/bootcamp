@@ -14,6 +14,7 @@ __all__ = [
     "twin_prime_pairs",
     "is_armstrong_number",
     "armstrong_numbers",
+    "prime_factorization",
 ]
 
 
@@ -102,3 +103,40 @@ def armstrong_numbers(limit: int) -> List[int]:
         return []
 
     return [candidate for candidate in range(limit + 1) if is_armstrong_number(candidate)]
+
+
+def prime_factorization(value: int) -> List[int]:
+    """Return the prime factors of ``value`` in non-decreasing order.
+
+    Only integers greater than or equal to ``2`` can be factorized into primes.
+    Providing a smaller value raises a :class:`ValueError` to signal invalid
+    input. The implementation performs trial division while reusing the
+    :func:`is_prime` helper to minimize redundant work when testing larger
+    factors.
+    """
+
+    if value < 2:
+        raise ValueError("Prime factorization is only defined for integers >= 2.")
+
+    remaining = value
+    factors: List[int] = []
+
+    # Handle the smallest prime explicitly to enable a consistent odd-step loop
+    while remaining % 2 == 0:
+        factors.append(2)
+        remaining //= 2
+
+    candidate = 3
+    limit = isqrt(remaining)
+    while candidate <= limit and remaining > 1:
+        if remaining % candidate == 0:
+            factors.append(candidate)
+            remaining //= candidate
+            limit = isqrt(remaining)
+        else:
+            candidate += 2
+
+    if remaining > 1:
+        factors.append(remaining)
+
+    return factors
