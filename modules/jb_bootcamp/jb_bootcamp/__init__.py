@@ -27,6 +27,7 @@ from .go_board import *
 from .earth_surface_ice import *
 from .demographics import *
 from .boss import *
+from .trust import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
