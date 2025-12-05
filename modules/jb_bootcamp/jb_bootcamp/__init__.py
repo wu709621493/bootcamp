@@ -29,6 +29,7 @@ from .demographics import *
 from .boss import *
 from .trust import *
 from .project_alaska import *
+from .project_skyline import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
