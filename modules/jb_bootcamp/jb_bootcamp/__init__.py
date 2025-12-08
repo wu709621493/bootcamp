@@ -31,6 +31,7 @@ from .trust import *
 from .project_alaska import *
 from .project_skyline import *
 from .project_cantonese import *
+from .fire_risk import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
