@@ -5,6 +5,7 @@ identify twin prime pairs (pairs of primes that differ by two).
 """
 from __future__ import annotations
 
+import argparse
 from math import isqrt
 from typing import List, Tuple
 
@@ -163,3 +164,21 @@ def nth_prime(n: int) -> int:
             candidate = 3
         else:
             candidate += 2
+
+
+def main(argv: list[str] | None = None) -> None:
+    """Print the ``n`` th prime for a user-supplied index."""
+
+    parser = argparse.ArgumentParser(description="Compute the nth prime number.")
+    parser.add_argument(
+        "n",
+        type=int,
+        help="Index (starting at 1) of the prime number to return.",
+    )
+
+    args = parser.parse_args(argv)
+    print(nth_prime(args.n))
+
+
+if __name__ == "__main__":  # pragma: no cover - exercised via CLI
+    main()
