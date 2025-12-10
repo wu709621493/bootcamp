@@ -1,5 +1,8 @@
 """Tests for prime utility helpers."""
 
+import subprocess
+import sys
+
 import pytest
 
 from jb_bootcamp.prime_utils import (
@@ -55,8 +58,20 @@ def test_nth_prime_values_and_validation():
     assert nth_prime(1) == 2
     assert nth_prime(5) == 11
     assert nth_prime(10) == 29
+    assert nth_prime(38) == 163
 
     with pytest.raises(ValueError):
         nth_prime(0)
     with pytest.raises(TypeError):
         nth_prime(2.5)
+
+
+def test_nth_prime_cli_invocation():
+    result = subprocess.run(
+        [sys.executable, "-m", "jb_bootcamp.prime_utils", "38"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.stdout.strip() == "163"
