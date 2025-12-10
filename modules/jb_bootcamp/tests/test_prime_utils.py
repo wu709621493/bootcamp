@@ -5,6 +5,7 @@ import pytest
 from jb_bootcamp.prime_utils import (
     armstrong_numbers,
     is_armstrong_number,
+    nth_prime,
     prime_factorization,
 )
 
@@ -48,3 +49,14 @@ def test_prime_factorization_of_prime_number():
 def test_prime_factorization_rejects_small_inputs():
     with pytest.raises(ValueError):
         prime_factorization(1)
+
+
+def test_nth_prime_values_and_validation():
+    assert nth_prime(1) == 2
+    assert nth_prime(5) == 11
+    assert nth_prime(10) == 29
+
+    with pytest.raises(ValueError):
+        nth_prime(0)
+    with pytest.raises(TypeError):
+        nth_prime(2.5)

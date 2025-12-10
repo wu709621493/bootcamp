@@ -15,6 +15,7 @@ __all__ = [
     "is_armstrong_number",
     "armstrong_numbers",
     "prime_factorization",
+    "nth_prime",
 ]
 
 
@@ -140,3 +141,25 @@ def prime_factorization(value: int) -> List[int]:
         factors.append(remaining)
 
     return factors
+
+
+def nth_prime(n: int) -> int:
+    """Return the ``n`` th prime number using a straightforward search."""
+
+    if not isinstance(n, int):
+        raise TypeError("n must be an integer.")
+    if n <= 0:
+        raise ValueError("n must be a positive integer.")
+
+    count = 0
+    candidate = 2
+    while True:  # pragma: no branch - loop exits via return
+        if is_prime(candidate):
+            count += 1
+            if count == n:
+                return candidate
+
+        if candidate == 2:
+            candidate = 3
+        else:
+            candidate += 2
