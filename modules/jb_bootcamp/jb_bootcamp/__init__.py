@@ -33,6 +33,7 @@ from .project_skyline import *
 from .project_cantonese import *
 from .fire_risk import *
 from .fun_calculator import *
+from .simple_arithmetic import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
