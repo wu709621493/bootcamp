@@ -36,6 +36,7 @@ from .fun_calculator import *
 from .simple_arithmetic import *
 from .time_utils import *
 from .rifle import *
+from .chess_knight import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
