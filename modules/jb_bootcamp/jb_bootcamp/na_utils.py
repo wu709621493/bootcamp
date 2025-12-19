@@ -48,3 +48,38 @@ def reverse_rna_complement(seq):
         return seq.upper()
     else:
         return seq
+
+
+def gc_content(seq):
+    """
+    Compute the fraction of bases in a DNA sequence that are G or C.
+
+    Parameters
+    ----------
+    seq : str
+        DNA sequence consisting of A, T, G, and C characters.
+
+    Returns
+    -------
+    float
+        Fraction of characters that are either G or C.
+
+    Raises
+    ------
+    ValueError
+        If the sequence is empty or contains invalid characters.
+    """
+
+    if not seq:
+        raise ValueError("Sequence must not be empty.")
+
+    seq_upper = seq.upper()
+    valid_bases = {"A", "T", "G", "C"}
+    invalid_bases = set(seq_upper) - valid_bases
+
+    if invalid_bases:
+        invalid_str = "".join(sorted(invalid_bases))
+        raise ValueError(f"Invalid nucleotides present: {invalid_str}")
+
+    gc_count = sum(base in {"G", "C"} for base in seq_upper)
+    return gc_count / len(seq_upper)
