@@ -4,6 +4,8 @@ from pathlib import Path
 
 from jb_bootcamp.string_theory import (
     SignatureSummary,
+    Candidate,
+    filter_candidates,
     format_signature_summary,
     load_candidates,
     summarize_by_signature,
@@ -52,4 +54,59 @@ def test_format_signature_summary_orders_by_count_then_name() -> None:
 
 def test_format_signature_summary_handles_empty_mapping() -> None:
     assert format_signature_summary({}) == "No candidates available."
+
+
+def test_filter_candidates_applies_case_insensitive_substring_filters() -> None:
+    candidates = [
+        Candidate(
+            candidate="Primordial gravitational wave spectrum",
+            signature_type="Tensor perturbations at high multipoles",
+            measurement_goal="Observe B-mode polarization",
+            instrumentation="Space-based laser interferometer",
+            mission_context="Next-generation LISA-like mission targeting mHz-kHz range",
+            notes="",
+        ),
+        Candidate(
+            candidate="Cosmic microwave background temperature anisotropy",
+            signature_type="Scalar perturbations",
+            measurement_goal="Refine spectral index",
+            instrumentation="CMB surveyor",
+            mission_context="Ground-based array",
+            notes="",
+        ),
+    ]
+
+    filtered = filter_candidates(
+        candidates,
+        signature_type="tensor",
+        instrumentation="laser",
+        mission_context="LISA",
+    )
+
+    assert [entry.candidate for entry in filtered] == [
+        "Primordial gravitational wave spectrum"
+    ]
+
+
+def test_filter_candidates_returns_all_when_no_filters() -> None:
+    candidates = [
+        Candidate(
+            candidate="A",
+            signature_type="Type A",
+            measurement_goal="Goal A",
+            instrumentation="Instrument A",
+            mission_context="Mission A",
+            notes="",
+        ),
+        Candidate(
+            candidate="B",
+            signature_type="Type B",
+            measurement_goal="Goal B",
+            instrumentation="Instrument B",
+            mission_context="Mission B",
+            notes="",
+        ),
+    ]
+
+    assert filter_candidates(candidates) == candidates
 

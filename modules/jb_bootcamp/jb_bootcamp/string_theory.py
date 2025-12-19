@@ -55,6 +55,14 @@ def _clean(value: str | None) -> str:
     return (value or "").strip()
 
 
+def _matches(field: str, pattern: str | None) -> bool:
+    """Case-insensitive substring match helper."""
+
+    if pattern is None:
+        return True
+    return pattern.lower() in field.lower()
+
+
 def load_candidates(path: Path | str | None = None) -> list[Candidate]:
     """Load candidates from ``path`` or the default CSV."""
 
@@ -99,6 +107,31 @@ def _format_collection(items: Sequence[str]) -> str:
     return ", ".join(items) if items else "—"
 
 
+def filter_candidates(
+    candidates: Iterable[Candidate],
+    *,
+    signature_type: str | None = None,
+    instrumentation: str | None = None,
+    mission_context: str | None = None,
+) -> list[Candidate]:
+    """Return candidates matching optional substring filters.
+
+    Matches are case-insensitive and performed against the provided substring. When
+    a filter argument is ``None``, that field is ignored.
+    """
+
+    filtered: list[Candidate] = []
+    for entry in candidates:
+        if not _matches(entry.signature_type, signature_type):
+            continue
+        if not _matches(entry.instrumentation, instrumentation):
+            continue
+        if not _matches(entry.mission_context, mission_context):
+            continue
+        filtered.append(entry)
+    return filtered
+
+
 def format_signature_summary(summary: Mapping[str, SignatureSummary]) -> str:
     """Return a multi-line report for ``summary``."""
 
@@ -133,9 +166,30 @@ def main(argv: Sequence[str] | None = None) -> None:
         default=DEFAULT_DATA,
         help="Path to string_theory_observational_candidates.csv",
     )
+    parser.add_argument(
+        "--signature-type",
+        type=str,
+        help="Case-insensitive substring to match within signature type",
+    )
+    parser.add_argument(
+        "--instrumentation",
+        type=str,
+        help="Case-insensitive substring to match within instrumentation",
+    )
+    parser.add_argument(
+        "--mission-context",
+        type=str,
+        help="Case-insensitive substring to match within mission context",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
 
     candidates = load_candidates(args.data)
+    candidates = filter_candidates(
+        candidates,
+        signature_type=args.signature_type,
+        instrumentation=args.instrumentation,
+        mission_context=args.mission_context,
+    )
     summary = summarize_by_signature(candidates)
     print(format_signature_summary(summary))
 
