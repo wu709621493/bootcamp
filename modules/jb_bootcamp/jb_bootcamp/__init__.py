@@ -37,6 +37,7 @@ from .simple_arithmetic import *
 from .time_utils import *
 from .rifle import *
 from .chess_knight import *
+from .loan import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
