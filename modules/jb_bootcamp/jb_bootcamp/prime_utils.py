@@ -26,6 +26,8 @@ def is_prime(value: int) -> bool:
     The implementation uses trial division up to the square root of the
     value. Negative integers and zero are not considered prime.
     """
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise TypeError("value must be an integer.")
     if value <= 1:
         return False
     if value <= 3:
@@ -52,6 +54,8 @@ def prime_series(limit: int) -> List[int]:
     limit:
         The inclusive upper bound for the generated primes.
     """
+    if not isinstance(limit, int) or isinstance(limit, bool):
+        raise TypeError("limit must be an integer.")
     if limit < 2:
         return []
 
@@ -70,6 +74,9 @@ def twin_prime_pairs(limit: int) -> List[Tuple[int, int]]:
     the second element of the pair so that every returned value satisfies
     ``p + 2 <= limit``.
     """
+    if not isinstance(limit, int) or isinstance(limit, bool):
+        raise TypeError("limit must be an integer.")
+
     primes = prime_series(limit)
     twin_pairs: List[Tuple[int, int]] = []
     for first, second in zip(primes, primes[1:]):
@@ -86,6 +93,8 @@ def is_armstrong_number(value: int) -> bool:
     integers can satisfy the property; negative inputs always return ``False``.
     """
 
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise TypeError("value must be an integer.")
     if value < 0:
         return False
 
@@ -101,6 +110,8 @@ def armstrong_numbers(limit: int) -> List[int]:
     empty list. Results are ordered from smallest to largest.
     """
 
+    if not isinstance(limit, int) or isinstance(limit, bool):
+        raise TypeError("limit must be an integer.")
     if limit < 0:
         return []
 
@@ -117,6 +128,8 @@ def prime_factorization(value: int) -> List[int]:
     factors.
     """
 
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise TypeError("value must be an integer.")
     if value < 2:
         raise ValueError("Prime factorization is only defined for integers >= 2.")
 
