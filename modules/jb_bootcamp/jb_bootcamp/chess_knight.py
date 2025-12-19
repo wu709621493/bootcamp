@@ -62,9 +62,10 @@ class KnightBoard:
         start = self._coerce_square(square)
         moves: List[Square] = []
         for file_delta, rank_delta in _KNIGHT_DELTAS:
-            candidate = Square(file=start.file + file_delta, rank=start.rank + rank_delta)
-            if self._is_on_board(candidate):
-                moves.append(candidate)
+            candidate_file = start.file + file_delta
+            candidate_rank = start.rank + rank_delta
+            if 1 <= candidate_file <= self.size and 1 <= candidate_rank <= self.size:
+                moves.append(Square(file=candidate_file, rank=candidate_rank))
         return sorted(moves)
 
     def shortest_path(self, start: Union[Square, str], target: Union[Square, str]) -> Sequence[Square]:
@@ -116,3 +117,37 @@ def move_sequence_as_algebraic(squares: Iterable[Square]) -> Tuple[str, ...]:
     """Render a sequence of squares as algebraic coordinates."""
 
     return tuple(square.to_algebraic() for square in squares)
+
+
+def knight_minimum_moves(
+    start: Union[Square, str],
+    target: Union[Square, str],
+    *,
+    size: int = 8,
+) -> int:
+    """Return the minimal number of knight moves from ``start`` to ``target``.
+
+    Parameters
+    ----------
+    start, target
+        Starting and target squares, either as :class:`Square` objects or
+        algebraic coordinates like ``"a1"``.
+    size
+        Board dimension; defaults to a standard ``8x8`` chessboard.
+
+    Returns
+    -------
+    int
+        Number of moves needed to reach the target.  A start square that is
+        already the target returns ``0``.
+
+    Raises
+    ------
+    ValueError
+        If either square is off the board or the target cannot be reached on a
+        board of the given size.
+    """
+
+    board = KnightBoard(size)
+    path = board.shortest_path(start, target)
+    return len(path) - 1
