@@ -4,10 +4,13 @@ from pathlib import Path
 
 from jb_bootcamp.string_theory import (
     SignatureSummary,
+    InstrumentationSummary,
     Candidate,
     filter_candidates,
+    format_instrumentation_summary,
     format_signature_summary,
     load_candidates,
+    summarize_by_instrumentation,
     summarize_by_signature,
 )
 
@@ -54,6 +57,66 @@ def test_format_signature_summary_orders_by_count_then_name() -> None:
 
 def test_format_signature_summary_handles_empty_mapping() -> None:
     assert format_signature_summary({}) == "No candidates available."
+
+
+def test_summarize_by_instrumentation_groups_signatures_and_missions() -> None:
+    candidates = [
+        Candidate(
+            candidate="Candidate A1",
+            signature_type="Signature A",
+            measurement_goal="Goal A1",
+            instrumentation="Scope A",
+            mission_context="Mission 1",
+            notes="",
+        ),
+        Candidate(
+            candidate="Candidate A2",
+            signature_type="Signature B",
+            measurement_goal="Goal A2",
+            instrumentation="Scope A",
+            mission_context="Mission 2",
+            notes="",
+        ),
+        Candidate(
+            candidate="Candidate B",
+            signature_type="Signature C",
+            measurement_goal="Goal B",
+            instrumentation="Scope B",
+            mission_context="Mission 3",
+            notes="",
+        ),
+    ]
+
+    summary = summarize_by_instrumentation(candidates)
+
+    scope_a = summary["Scope A"]
+    assert scope_a.count == 2
+    assert scope_a.signature_types == ("Signature A", "Signature B")
+    assert scope_a.missions == ("Mission 1", "Mission 2")
+
+
+def test_format_instrumentation_summary_orders_and_lists_fields() -> None:
+    summary = {
+        "Scope B": InstrumentationSummary(
+            "Scope B",
+            count=1,
+            signature_types=("Signature C",),
+            missions=("Mission 3",),
+        ),
+        "Scope A": InstrumentationSummary(
+            "Scope A",
+            count=2,
+            signature_types=("Signature A", "Signature B"),
+            missions=("Mission 1", "Mission 2"),
+        ),
+    }
+
+    report = format_instrumentation_summary(summary)
+    lines = [line for line in report.splitlines() if "—" in line]
+
+    assert lines[0].startswith("Scope A — 2")
+    assert "Signature A" in report
+    assert "Mission 3" in report
 
 
 def test_filter_candidates_applies_case_insensitive_substring_filters() -> None:
