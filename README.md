@@ -13,3 +13,7 @@ Except where specified for a specific data set, data sets are restricted. Direct
 ## String theory observational candidates dataset
 
 The file `data/string_theory_observational_candidates.csv` summarizes space-based observational targets and associated instrumentation properties that could help constrain or verify aspects of string theory. Each row lists the candidate signal, the desired measurement, and mission design considerations.
+
+## Working with Jupyter
+
+See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a virtual environment, installing notebook dependencies, and launching Jupyter Lab with a dedicated kernel for this repository.
