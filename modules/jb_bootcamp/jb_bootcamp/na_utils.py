@@ -83,3 +83,41 @@ def gc_content(seq):
 
     gc_count = sum(base in {"G", "C"} for base in seq_upper)
     return gc_count / len(seq_upper)
+
+
+def count_bases(seq):
+    """
+    Count each nucleotide in a DNA sequence.
+
+    Parameters
+    ----------
+    seq : str
+        DNA sequence consisting of A, T, G, and C characters.
+
+    Returns
+    -------
+    dict
+        Dictionary mapping nucleotide characters to their counts.
+
+    Raises
+    ------
+    ValueError
+        If the sequence is empty or contains invalid characters.
+    """
+
+    if not seq:
+        raise ValueError("Sequence must not be empty.")
+
+    seq_upper = seq.upper()
+    valid_bases = {"A", "T", "G", "C"}
+    invalid_bases = set(seq_upper) - valid_bases
+
+    if invalid_bases:
+        invalid_str = "".join(sorted(invalid_bases))
+        raise ValueError(f"Invalid nucleotides present: {invalid_str}")
+
+    counts = {base: 0 for base in valid_bases}
+    for base in seq_upper:
+        counts[base] += 1
+
+    return counts
