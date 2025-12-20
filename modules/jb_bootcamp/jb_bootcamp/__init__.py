@@ -39,6 +39,7 @@ from .rifle import *
 from .chess_knight import *
 from .loan import *
 from .supermarket import *
+from .spin import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
