@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from numbers import Number
 
-__all__ = ["add", "verify_sum"]
+__all__ = ["add", "expo", "verify_sum"]
 
 
 def _ensure_numeric(value: Number, name: str) -> Number:
@@ -26,6 +26,32 @@ def add(left: Number, right: Number) -> Number:
     left_numeric = _ensure_numeric(left, "left")
     right_numeric = _ensure_numeric(right, "right")
     return left_numeric + right_numeric
+
+
+def expo(base: Number, exponent: Number) -> Number:
+    """Return ``base`` raised to the power of ``exponent`` with validation.
+
+    The function accepts any numeric ``base`` but restricts ``exponent`` to
+    non-negative integers to avoid surprising implicit conversions. Inputs are
+    validated before computing the power.
+
+    Raises
+    ------
+    TypeError
+        If ``base`` is not numeric or ``exponent`` is not an integer.
+    ValueError
+        If ``exponent`` is negative.
+    """
+
+    base_numeric = _ensure_numeric(base, "base")
+    exponent_numeric = _ensure_numeric(exponent, "exponent")
+
+    if not isinstance(exponent_numeric, int) or isinstance(exponent_numeric, bool):
+        raise TypeError("exponent must be an integer.")
+    if exponent_numeric < 0:
+        raise ValueError("exponent must be non-negative.")
+
+    return base_numeric**exponent_numeric
 
 
 def verify_sum(left: Number, right: Number, expected: Number) -> bool:
