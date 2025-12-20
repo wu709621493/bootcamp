@@ -51,6 +51,23 @@ class SignatureSummary:
     missions: tuple[str, ...]
 
 
+@dataclass
+class _InstrumentationBucket:
+    count: int = 0
+    signatures: set[str] = field(default_factory=set)
+    missions: set[str] = field(default_factory=set)
+
+
+@dataclass(frozen=True)
+class InstrumentationSummary:
+    """Aggregate information for an instrumentation entry."""
+
+    instrumentation: str
+    count: int
+    signature_types: tuple[str, ...]
+    missions: tuple[str, ...]
+
+
 def _clean(value: str | None) -> str:
     return (value or "").strip()
 
@@ -98,6 +115,33 @@ def summarize_by_signature(candidates: Iterable[Candidate]) -> dict[str, Signatu
             signature_type=signature,
             count=data.count,
             instruments=instruments,
+            missions=missions,
+        )
+    return summary
+
+
+def summarize_by_instrumentation(
+    candidates: Iterable[Candidate],
+) -> dict[str, InstrumentationSummary]:
+    """Group ``candidates`` by instrumentation with signature + mission lists."""
+
+    buckets: defaultdict[str, _InstrumentationBucket] = defaultdict(
+        _InstrumentationBucket
+    )
+    for entry in candidates:
+        bucket = buckets[entry.instrumentation]
+        bucket.count += 1
+        bucket.signatures.add(entry.signature_type)
+        bucket.missions.add(entry.mission_context)
+
+    summary: dict[str, InstrumentationSummary] = {}
+    for instrumentation, data in buckets.items():
+        signatures = tuple(sorted(data.signatures))
+        missions = tuple(sorted(data.missions))
+        summary[instrumentation] = InstrumentationSummary(
+            instrumentation=instrumentation,
+            count=data.count,
+            signature_types=signatures,
             missions=missions,
         )
     return summary
@@ -156,6 +200,32 @@ def format_signature_summary(summary: Mapping[str, SignatureSummary]) -> str:
     return "\n".join(lines).rstrip()
 
 
+def format_instrumentation_summary(
+    summary: Mapping[str, InstrumentationSummary]
+) -> str:
+    """Return a multi-line report for an instrumentation summary."""
+
+    if not summary:
+        return "No candidates available."
+
+    entries = sorted(
+        summary.values(),
+        key=lambda item: (-item.count, item.instrumentation.lower()),
+    )
+
+    lines: list[str] = []
+    for entry in entries:
+        noun = "candidate" if entry.count == 1 else "candidates"
+        lines.append(f"{entry.instrumentation} — {entry.count} {noun}")
+        lines.append(
+            f"  Signature types: {_format_collection(entry.signature_types)}"
+        )
+        lines.append(f"  Missions: {_format_collection(entry.missions)}")
+        lines.append("")
+
+    return "\n".join(lines).rstrip()
+
+
 def main(argv: Sequence[str] | None = None) -> None:
     parser = argparse.ArgumentParser(
         description="Summarise the string theory observational candidate dataset."
@@ -181,6 +251,12 @@ def main(argv: Sequence[str] | None = None) -> None:
         type=str,
         help="Case-insensitive substring to match within mission context",
     )
+    parser.add_argument(
+        "--group-by",
+        choices=("signature", "instrumentation"),
+        default="signature",
+        help="Grouping field to use for the summary output",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
 
     candidates = load_candidates(args.data)
@@ -190,8 +266,12 @@ def main(argv: Sequence[str] | None = None) -> None:
         instrumentation=args.instrumentation,
         mission_context=args.mission_context,
     )
-    summary = summarize_by_signature(candidates)
-    print(format_signature_summary(summary))
+    if args.group_by == "instrumentation":
+        summary = summarize_by_instrumentation(candidates)
+        print(format_instrumentation_summary(summary))
+    else:
+        summary = summarize_by_signature(candidates)
+        print(format_signature_summary(summary))
 
 
 if __name__ == "__main__":
