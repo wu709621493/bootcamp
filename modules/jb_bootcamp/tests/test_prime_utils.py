@@ -8,6 +8,7 @@ import pytest
 from jb_bootcamp.prime_utils import (
     armstrong_numbers,
     is_armstrong_number,
+    next_prime,
     nth_prime,
     prime_factorization,
 )
@@ -75,3 +76,12 @@ def test_nth_prime_cli_invocation():
     )
 
     assert result.stdout.strip() == "163"
+
+
+def test_next_prime_values_and_validation():
+    assert next_prime(14) == 17
+    assert next_prime(17) == 17
+    assert next_prime(0) == 2
+
+    with pytest.raises(TypeError):
+        next_prime(4.5)

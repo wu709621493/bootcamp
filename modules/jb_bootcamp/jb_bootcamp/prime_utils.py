@@ -17,6 +17,7 @@ __all__ = [
     "armstrong_numbers",
     "prime_factorization",
     "nth_prime",
+    "next_prime",
 ]
 
 
@@ -177,6 +178,21 @@ def nth_prime(n: int) -> int:
             candidate = 3
         else:
             candidate += 2
+
+
+def next_prime(value: int) -> int:
+    """Return the smallest prime number greater than or equal to ``value``."""
+
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise TypeError("value must be an integer.")
+
+    if value <= 2:
+        return 2
+
+    candidate = value if value % 2 else value + 1
+    while not is_prime(candidate):
+        candidate += 2
+    return candidate
 
 
 def main(argv: list[str] | None = None) -> None:
