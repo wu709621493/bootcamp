@@ -70,6 +70,40 @@ def _landing_controller(
     return _clamp(throttle)
 
 
+def braking_distance(descent_speed: float, available_upward_acceleration: float, *, buffer: float = 0.0) -> float:
+    """Return the distance needed to null a downward velocity.
+
+    Parameters
+    ----------
+    descent_speed
+        Magnitude of the downward velocity component in metres per second. Must be
+        non-negative.
+    available_upward_acceleration
+        Upward acceleration capacity from thrust minus gravity (``m / s**2``). Must
+        be positive.
+    buffer
+        Optional additional distance to include as a safety margin in metres.
+
+    Returns
+    -------
+    float
+        Required distance in metres to brake to zero vertical speed, including the
+        optional ``buffer``.
+    """
+
+    if descent_speed < 0:
+        raise ValueError("descent_speed must be non-negative.")
+    if available_upward_acceleration <= 0:
+        raise ValueError("available_upward_acceleration must be positive.")
+    if buffer < 0:
+        raise ValueError("buffer must be non-negative.")
+
+    if descent_speed == 0:
+        return buffer
+
+    return descent_speed ** 2 / (2.0 * available_upward_acceleration) + buffer
+
+
 def simulate_vertical_landing(
     *,
     mass: float = 2000.0,
@@ -155,10 +189,12 @@ def simulate_vertical_landing(
             throttle = 1.0
         else:
             if not landing_burn_active and velocity < 0.0:
-                required_stop_distance = (velocity ** 2) / (
-                    2.0 * max(upward_acceleration_available, 1e-6)
+                required_stop_distance = braking_distance(
+                    abs(velocity),
+                    upward_acceleration_available,
+                    buffer=controller_activation_altitude,
                 )
-                if altitude <= required_stop_distance + controller_activation_altitude:
+                if altitude <= required_stop_distance:
                     landing_burn_active = True
 
             if landing_burn_active:
