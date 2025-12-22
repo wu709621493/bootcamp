@@ -5,6 +5,7 @@ from typing import List
 
 __all__ = [
     "proper_divisors",
+    "aliquot_sum",
     "is_perfect_number",
     "classify_number",
     "abundant_numbers",
@@ -40,6 +41,17 @@ def proper_divisors(value: int) -> List[int]:
         if validated % candidate == 0:
             divisors.append(candidate)
     return divisors
+
+
+def aliquot_sum(value: int) -> int:
+    """Return the sum of the proper divisors of ``value``.
+
+    This helper wraps :func:`proper_divisors` and provides consistent input
+    validation for consumers that only need the divisor sum.
+    """
+
+    validated = _validate_positive_int(value, "value")
+    return sum(proper_divisors(validated))
 
 
 def is_perfect_number(value: int) -> bool:

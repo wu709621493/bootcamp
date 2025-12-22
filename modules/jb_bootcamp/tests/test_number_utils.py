@@ -2,7 +2,13 @@
 
 import pytest
 
-from jb_bootcamp.number_utils import abundant_numbers, classify_number, is_perfect_number, proper_divisors
+from jb_bootcamp.number_utils import (
+    abundant_numbers,
+    aliquot_sum,
+    classify_number,
+    is_perfect_number,
+    proper_divisors,
+)
 
 
 def test_proper_divisors_basic():
@@ -18,6 +24,12 @@ def test_is_perfect_number_and_classification():
     assert classify_number(8) == "deficient"
 
 
+def test_aliquot_sum_values():
+    assert aliquot_sum(1) == 0
+    assert aliquot_sum(6) == 6
+    assert aliquot_sum(12) == 16
+
+
 def test_abundant_numbers_sequence_and_bounds():
     assert abundant_numbers(30) == [12, 18, 20, 24, 30]
     assert abundant_numbers(11) == []
@@ -28,5 +40,7 @@ def test_number_validation_errors():
         proper_divisors(2.5)
     with pytest.raises(TypeError):
         classify_number(True)
+    with pytest.raises(TypeError):
+        aliquot_sum(False)
     with pytest.raises(ValueError):
         abundant_numbers(0)
