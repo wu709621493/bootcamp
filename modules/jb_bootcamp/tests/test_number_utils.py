@@ -6,6 +6,7 @@ from jb_bootcamp.number_utils import (
     abundant_numbers,
     aliquot_sum,
     classify_number,
+    is_abundant_number,
     is_perfect_number,
     proper_divisors,
 )
@@ -22,6 +23,12 @@ def test_is_perfect_number_and_classification():
     assert classify_number(6) == "perfect"
     assert classify_number(12) == "abundant"
     assert classify_number(8) == "deficient"
+
+
+def test_is_abundant_number_checks():
+    assert is_abundant_number(12)
+    assert not is_abundant_number(6)
+    assert not is_abundant_number(11)
 
 
 def test_aliquot_sum_values():

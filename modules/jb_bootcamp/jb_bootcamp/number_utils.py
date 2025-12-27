@@ -8,6 +8,7 @@ __all__ = [
     "aliquot_sum",
     "is_perfect_number",
     "classify_number",
+    "is_abundant_number",
     "abundant_numbers",
 ]
 
@@ -79,6 +80,13 @@ def classify_number(value: int) -> str:
     if divisor_sum > validated:
         return "abundant"
     return "deficient"
+
+
+def is_abundant_number(value: int) -> bool:
+    """Return ``True`` if ``value`` is an abundant number."""
+
+    validated = _validate_positive_int(value, "value")
+    return sum(proper_divisors(validated)) > validated
 
 
 def abundant_numbers(limit: int) -> List[int]:
