@@ -33,6 +33,11 @@ def test_drill_hole_reports_duration_and_rate():
     assert math.isclose(result.spoil_volume_m3, math.pi * (0.2) ** 2 * 12)
 
 
+def test_drill_hole_preserves_display_soil_type():
+    result = drill_hole(depth_m=3, diameter_m=0.2, soil_type="  Clay  ")
+    assert result.soil_type == "Clay"
+
+
 def test_drill_hole_rejects_unknown_soil():
     with pytest.raises(KeyError):
         drill_hole(depth_m=5, diameter_m=0.3, soil_type="martian dust")

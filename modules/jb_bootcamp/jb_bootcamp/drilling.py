@@ -72,7 +72,8 @@ def drill_hole(
     if not isinstance(soil_type, str) or not soil_type.strip():
         raise ValueError("soil_type must be a non-empty string.")
 
-    soil_key = soil_type.strip().lower()
+    soil_label = soil_type.strip()
+    soil_key = soil_label.lower()
     if soil_key not in SOIL_RESISTANCE_FACTORS:
         raise KeyError(
             f"Unknown soil_type '{soil_type}'. Known types: {', '.join(sorted(SOIL_RESISTANCE_FACTORS))}."
@@ -104,7 +105,7 @@ def drill_hole(
     return DrillingResult(
         depth_m=depth,
         diameter_m=diameter,
-        soil_type=soil_key,
+        soil_type=soil_label,
         spoil_volume_m3=spoil_volume,
         penetration_rate_m_per_hr=effective_rate,
         duration_hr=duration,
