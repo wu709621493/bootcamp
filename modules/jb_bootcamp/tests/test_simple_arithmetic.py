@@ -2,7 +2,7 @@ import math
 
 import pytest
 
-from jb_bootcamp.simple_arithmetic import add, expo, verify_sum
+from jb_bootcamp.simple_arithmetic import add, expo, parse_sum_expression, verify_sum
 
 
 def test_add_basic_integers():
@@ -37,3 +37,19 @@ def test_expo_rejects_negative_or_non_integer_exponent():
         expo(2, -1)
     with pytest.raises(TypeError):
         expo(2, 1.5)
+
+
+def test_parse_sum_expression_handles_unary_plus():
+    assert parse_sum_expression("1++1") == 2
+
+
+def test_parse_sum_expression_supports_whitespace_and_negatives():
+    assert parse_sum_expression("10 + -3") == 7
+    assert math.isclose(parse_sum_expression("2.5+0.5"), 3.0)
+
+
+def test_parse_sum_expression_validates_input_types_and_format():
+    with pytest.raises(TypeError):
+        parse_sum_expression(123)
+    with pytest.raises(ValueError):
+        parse_sum_expression("1+2+3")

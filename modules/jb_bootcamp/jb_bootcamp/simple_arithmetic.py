@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+import re
 from numbers import Number
 
-__all__ = ["add", "expo", "verify_sum"]
+__all__ = ["add", "expo", "parse_sum_expression", "verify_sum"]
 
 
 def _ensure_numeric(value: Number, name: str) -> Number:
@@ -83,3 +84,48 @@ def verify_sum(left: Number, right: Number, expected: Number) -> bool:
             f"Expected {left!r} + {right!r} to equal {expected!r}, got {result!r}."
         )
     return True
+
+
+def parse_sum_expression(expression: str) -> Number:
+    """Compute the sum expressed as a simple ``"A+B"`` string.
+
+    The parser accepts optional whitespace around the operator and unary plus or
+    minus signs on each operand, allowing inputs such as ``"1++1"`` or
+    ``"10 + -3"``. Only numeric literals are permitted; any other characters or
+    additional operators raise ``ValueError``.
+
+    Parameters
+    ----------
+    expression
+        String representing a single addition expression.
+
+    Returns
+    -------
+    Number
+        The computed sum of the two operands.
+
+    Raises
+    ------
+    TypeError
+        If ``expression`` is not a string.
+    ValueError
+        If the expression does not match the supported ``A+B`` pattern.
+    """
+
+    if not isinstance(expression, str):
+        raise TypeError("expression must be a string.")
+
+    match = re.fullmatch(
+        r"\s*([+-]?\d+(?:\.\d+)?)\s*\+\s*([+-]?\d+(?:\.\d+)?)\s*",
+        expression,
+    )
+    if not match:
+        raise ValueError(
+            "expression must be in the form 'A+B' with optional unary signs and whitespace."
+        )
+
+    left_literal, right_literal = match.groups()
+    left_number = float(left_literal) if "." in left_literal else int(left_literal)
+    right_number = float(right_literal) if "." in right_literal else int(right_literal)
+
+    return add(left_number, right_number)
