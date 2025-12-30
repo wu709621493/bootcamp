@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime, timedelta
 from time import perf_counter
 from typing import Callable, Iterable, Tuple
 
-__all__ = ["format_duration", "time_call", "TimingResult"]
+__all__ = ["format_duration", "time_call", "TimingResult", "arrival_time"]
 
 
 @dataclass(frozen=True)
@@ -65,6 +66,21 @@ def format_duration(seconds: object, *, precision: int = 1) -> str:
     seconds_formatted = f"{remaining:.{precision}f}" if precision else str(int(round(remaining)))
     parts.append(f"{seconds_formatted.rstrip('0').rstrip('.') if precision else seconds_formatted}s")
     return " ".join(parts)
+
+
+def arrival_time(departure: datetime, travel_seconds: object) -> datetime:
+    """Return the arrival time after travelling for ``travel_seconds``.
+
+    ``travel_seconds`` must be a finite, non-negative numeric duration. The
+    returned :class:`~datetime.datetime` preserves the timezone information of
+    the ``departure`` instance.
+    """
+
+    if not isinstance(departure, datetime):
+        raise TypeError("departure must be a datetime.")
+
+    duration = timedelta(seconds=_validate_seconds(travel_seconds))
+    return departure + duration
 
 
 def time_call(func: Callable, *args, repeats: int = 1, **kwargs) -> TimingResult:
