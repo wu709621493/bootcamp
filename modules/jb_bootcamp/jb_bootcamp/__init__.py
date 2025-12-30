@@ -43,6 +43,7 @@ from .spin import *
 from .number_utils import *
 from .stack import *
 from .temperature import *
+from .vector import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
