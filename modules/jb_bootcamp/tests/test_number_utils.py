@@ -5,6 +5,7 @@ import pytest
 from jb_bootcamp.number_utils import (
     abundant_numbers,
     aliquot_sum,
+    comb,
     classify_number,
     is_abundant_number,
     is_perfect_number,
@@ -51,3 +52,19 @@ def test_number_validation_errors():
         aliquot_sum(False)
     with pytest.raises(ValueError):
         abundant_numbers(0)
+
+
+def test_comb_values_and_validation():
+    assert comb(5, 2) == 10
+    assert comb(10, 0) == 1
+    assert comb(7, 7) == 1
+    assert comb(30, 1) == 30
+
+    with pytest.raises(ValueError):
+        comb(3, 4)
+    with pytest.raises(ValueError):
+        comb(-1, 2)
+    with pytest.raises(TypeError):
+        comb(5.0, 2)
+    with pytest.raises(TypeError):
+        comb(True, 3)

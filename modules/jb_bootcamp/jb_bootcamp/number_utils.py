@@ -1,6 +1,7 @@
 """Utilities for classifying natural numbers by divisor sums."""
 from __future__ import annotations
 
+import math
 from typing import List
 
 __all__ = [
@@ -10,6 +11,7 @@ __all__ = [
     "classify_number",
     "is_abundant_number",
     "abundant_numbers",
+    "comb",
 ]
 
 
@@ -101,3 +103,19 @@ def abundant_numbers(limit: int) -> List[int]:
         return []
 
     return [candidate for candidate in range(12, validated + 1) if classify_number(candidate) == "abundant"]
+
+
+def comb(n: int, k: int) -> int:
+    """Compute ``n`` choose ``k`` with validation and symmetry reduction."""
+
+    for name, value in ("n", n), ("k", k):
+        if not isinstance(value, int) or isinstance(value, bool):
+            raise TypeError(f"{name} must be an integer.")
+        if value < 0:
+            raise ValueError(f"{name} must be non-negative.")
+
+    if k > n:
+        raise ValueError("k cannot exceed n.")
+
+    k = min(k, n - k)
+    return math.prod(range(n - k + 1, n + 1)) // math.prod(range(1, k + 1)) if k else 1
