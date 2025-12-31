@@ -45,6 +45,7 @@ from .stack import *
 from .temperature import *
 from .vector import *
 from .beam import *
+from .node import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
