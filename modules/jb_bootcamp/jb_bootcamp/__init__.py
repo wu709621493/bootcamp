@@ -46,6 +46,7 @@ from .temperature import *
 from .vector import *
 from .beam import *
 from .node import *
+from .emergency_exit import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
