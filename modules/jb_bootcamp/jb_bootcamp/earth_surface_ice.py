@@ -107,6 +107,7 @@ def plan_interventions(
     solar_radiation: float = 320.0,
     max_total_area: float | None = None,
     top_n: int | None = None,
+    min_risk: float | None = None,
 ) -> tuple[InterventionPlan, ...]:
     """Rank fields by risk and return intervention recommendations."""
 
@@ -114,6 +115,8 @@ def plan_interventions(
         raise ValueError("max_total_area must be positive when provided.")
     if top_n is not None and top_n <= 0:
         raise ValueError("top_n must be positive when provided.")
+    if min_risk is not None and min_risk < 0:
+        raise ValueError("min_risk must be non-negative when provided.")
 
     _ensure_unique_fields(fields)
 
@@ -131,6 +134,9 @@ def plan_interventions(
         )
         for field in fields
     ]
+
+    if min_risk is not None:
+        plans = [plan for plan in plans if plan.risk_score >= min_risk]
 
     plans.sort(key=lambda plan: (-plan.risk_score, plan.name))
 

@@ -63,6 +63,20 @@ def test_plan_interventions_orders_and_filters() -> None:
     assert total_area <= 2200
 
 
+def test_plan_interventions_minimum_risk_filter() -> None:
+    fields = [
+        IceField("Aurora", area_km2=1200, thickness_m=70, albedo=0.66, ocean_influence=0.4),
+        IceField("Beacon", area_km2=450, thickness_m=35, albedo=0.58, ocean_influence=0.15),
+        IceField("Cirrus", area_km2=320, thickness_m=55, albedo=0.72, ocean_influence=0.05),
+    ]
+
+    anomalies = {"Aurora": 2.8, "Beacon": 1.4, "Cirrus": 0.6}
+    plans = plan_interventions(fields, anomalies, min_risk=4.5)
+
+    assert [plan.name for plan in plans] == ["Aurora", "Beacon"]
+    assert all(plan.risk_score >= 4.5 for plan in plans)
+
+
 def test_plan_interventions_validates_inputs() -> None:
     fields = [
         IceField("Echo", area_km2=400, thickness_m=40),
@@ -79,3 +93,6 @@ def test_plan_interventions_validates_inputs() -> None:
 
     with pytest.raises(ValueError):
         plan_interventions(unique_fields, {"Echo": 1.2, "Fjord": 0.3}, top_n=0)
+
+    with pytest.raises(ValueError):
+        plan_interventions(unique_fields, {"Echo": 1.2, "Fjord": 0.3}, min_risk=-0.5)
