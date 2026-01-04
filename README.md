@@ -17,3 +17,7 @@ The file `data/string_theory_observational_candidates.csv` summarizes space-base
 ## Working with Jupyter
 
 See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a virtual environment, installing notebook dependencies, and launching Jupyter Lab with a dedicated kernel for this repository.
+
+## Quick references
+
+- **Brain Burst:** Direct link to the rapid ideation outline in [brain_burst.md](brain_burst.md).
