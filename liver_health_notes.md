@@ -25,6 +25,12 @@ Maintaining liver health combines lifestyle habits with awareness of warning sig
 - Jaundice (yellowing skin or eyes), dark urine, pale stools, or unexplained bruising/itching.
 - Swelling in legs or abdomen, confusion, or sleep-wake inversion.
 
+## What to do if you notice jaundice
+- Contact a clinician promptly, especially if jaundice appears suddenly or is accompanied by abdominal pain, confusion, or fever.
+- Pause alcohol use and any non-essential over-the-counter medications or supplements until you are evaluated.
+- Monitor urine and stool color and note recent medication changes, new foods, or travel that may help clinicians pinpoint the cause.
+- Seek urgent care if you also experience lightheadedness, persistent vomiting, or signs of bleeding.
+
 ## When to consult professionals
 - Before starting new medications, supplements, or high-intensity diets.
 - If you have a history of liver disease, diabetes, obesity, or significant alcohol use.
