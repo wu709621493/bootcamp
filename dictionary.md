@@ -21,3 +21,17 @@ No dictionary is ever complete. New slang, technical terms, and reclaimed identi
 ## Making your own
 
 To build a personal dictionary, start with words that matter to you: family sayings, field jargon, or borrowed phrases. Record pronunciation, note context, and add examples that illustrate why each word earned a place. Over time, the collection becomes a biography told through language, mapping how you listen, learn, and share.
+
+## New entries
+
+### Jai-s-mine
+- **Pronunciation**: /ˈdʒaɪz maɪn/
+- **Part of speech**: noun
+- **Definition**: A declaration of belonging that blends affection and stewardship, often used to signal shared care rather than exclusive possession.
+- **Example**: “This studio is Jai-s-mine—our place to make, protect, and keep welcoming.”
+
+### Jai-s-mean
+- **Pronunciation**: /ˈdʒaɪz miːn/
+- **Part of speech**: adjective
+- **Definition**: Describing the intended, agreed-upon meaning of a word or promise; the sense everyone is committing to honor.
+- **Example**: “Before we sign, let’s confirm the Jai-s-mean of the partnership clause.”
