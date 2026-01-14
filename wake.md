@@ -28,3 +28,9 @@ matters. Morning light audits both, inviting us to keep what heals and release w
 
 Wakefulness is not merely the absence of sleep. It is the practice of greeting the world without flinching, letting light
 arrive as information rather than judgment.
+
+## Wake's end
+- Lower the lights and lower the volume of the day. Evening is the body's gentle dimmer switch.
+- Log one lesson and one kindness. Memory settles better when it has anchors.
+- Set the room for tomorrow: water on the nightstand, phone facedown, clothes waiting.
+- Give your last breath a name: release, forgiveness, or simple quiet.
