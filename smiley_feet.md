@@ -3,7 +3,8 @@ They tap in place when a song is only a memory,
 and they glide when a hallway feels like a river.
 
 Give them a reason: warm socks, a clean floor,
-the kind of light that turns dust into confetti.
+the kind of light that turns dust into confetti,
+the trace of lavender that scents each footfall.
 They answer with a tilt and a bounce,
 with the grin you can hear in a step.
 
