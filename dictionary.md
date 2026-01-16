@@ -35,3 +35,9 @@ To build a personal dictionary, start with words that matter to you: family sayi
 - **Part of speech**: adjective
 - **Definition**: Describing the intended, agreed-upon meaning of a word or promise; the sense everyone is committing to honor.
 - **Example**: “Before we sign, let’s confirm the Jai-s-mean of the partnership clause.”
+
+### Half-Cuff
+- **Pronunciation**: /ˈhæf kʌf/
+- **Part of speech**: noun
+- **Definition**: A sleeve or bracelet-length detail that ends midway between the wrist and elbow, offering a tailored hint of formality without a full cuff.
+- **Example**: “The blazer’s half-cuff kept the silhouette crisp while leaving room for stacked bangles.”
