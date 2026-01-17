@@ -49,6 +49,7 @@ from .node import *
 from .emergency_exit import *
 from .vaccine_development import *
 from .notification import *
+from .hiv_cocktail import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
