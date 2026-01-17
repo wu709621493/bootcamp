@@ -7,4 +7,4 @@ This repository hosts instructional materials for the Caltech Introduction to Pr
 - **Data you add stays yours.** If you clone or fork the repository and add personal data (e.g., analysis outputs or custom datasets), you are responsible for safeguarding and removing that data.
 - **Third-party tools.** When running exercises that depend on external packages, refer to those packages' privacy policies for their handling of logs or network requests.
 
-For questions or privacy-related concerns, contact Justin Bois at `bois at caltech dot edu`.
+For questions or privacy-related concerns, contact the bootcamp maintainers.
