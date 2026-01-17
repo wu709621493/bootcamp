@@ -5,3 +5,5 @@ Immaculate is the quiet practice of wiping away the grit that clings to thought.
 An immaculate moment is often ordinary. The desk is cleared, the window is cracked, and the work resumes with softer edges. In that space, mistakes can be seen without shame, and the next action can be chosen with care.
 
 Immaculate habits are humble ones: name what harms, remove what distracts, keep what nourishes. The rest can drift away without ceremony. In the wake of that letting go, attention becomes gentler and more precise.
+
+Immaculate innocence is not naivety; it is the choice to meet the world without rehearsal, to keep the gaze unarmored and the heart unpolluted by borrowed cynicism. It asks for discernment without suspicion, and for tenderness that does not flinch. In that innocence, clarity returns, and what is true can be held without fear.
