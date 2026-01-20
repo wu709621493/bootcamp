@@ -41,3 +41,9 @@ To build a personal dictionary, start with words that matter to you: family sayi
 - **Part of speech**: noun
 - **Definition**: A sleeve or bracelet-length detail that ends midway between the wrist and elbow, offering a tailored hint of formality without a full cuff.
 - **Example**: “The blazer’s half-cuff kept the silhouette crisp while leaving room for stacked bangles.”
+
+### Stringent Astringent Extraction
+- **Pronunciation**: /ˈstrɪn.dʒənt əˈstrɪn.dʒənt ɪkˈstræk.ʃən/
+- **Part of speech**: noun
+- **Definition**: A deliberately rigorous process of removal or refinement meant to leave only the most essential, clarifying elements behind.
+- **Example**: “The editorial team applied a stringent astringent extraction to the manuscript, leaving only the most resonant passages.”
