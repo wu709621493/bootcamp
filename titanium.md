@@ -31,6 +31,11 @@ Titanium alloys retain strength at elevated temperatures and resist fatigue crac
 - **Energy and marine:** Offshore hardware, desalination plants, and oil-and-gas components that face seawater exposure.
 - **Consumer products:** Sporting goods, bicycles, eyewear, and premium hardware use titanium for durability and aesthetics.
 
+## Elasticity in surgical design
+Titanium is often described as “elastic” in a clinical context because its elastic modulus is closer to bone than stainless steel or cobalt-chromium alloys. This better mechanical match can reduce stress shielding, helping surrounding bone maintain healthy loading after surgery. For the “greatest elastic” outcomes, surgeons and engineers typically pair titanium with optimized implant geometries—porous lattices, thinner stems, or flexible plates—so stiffness is balanced with stability.
+
+In orthopedic and craniofacial procedures, Ti-6Al-4V and newer beta-titanium alloys are selected for high strength while allowing subtle flex. Surface texturing or porous coatings further encourage bone ingrowth, which can improve long-term fixation. Together, alloy selection and structural design enable titanium implants to be strong yet resilient, supporting healing without overly rigid load transfer.
+
 ## Chemical and materials uses
 - **Titanium dioxide (TiO₂):** A white pigment for paints, plastics, paper, and sunscreen due to high refractive index and UV scattering.
 - **Catalysis:** TiCl₄ and organotitanium catalysts support olefin polymerization and organic synthesis.
