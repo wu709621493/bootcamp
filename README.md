@@ -21,3 +21,4 @@ See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a vi
 ## Quick references
 
 - **Brain Burst:** Direct link to the rapid ideation outline in [brain_burst.md](brain_burst.md).
+- **Confidence Parking:** A short framework for holding views lightly while updating with evidence in [confidence_parking.md](confidence_parking.md).
