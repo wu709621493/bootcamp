@@ -23,3 +23,4 @@ See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a vi
 - **Brain Burst:** Direct link to the rapid ideation outline in [brain_burst.md](brain_burst.md).
 - **Bad Apple:** A short note on the phrase, proverb, and media reference in [bad_apple.md](bad_apple.md).
 - **Confidence Parking:** A short framework for holding views lightly while updating with evidence in [confidence_parking.md](confidence_parking.md).
+- **Taxing GUI:** Launch a simple desktop income-tax estimator with `python taxing_gui.py`.
