@@ -51,6 +51,7 @@ from .vaccine_development import *
 from .notification import *
 from .hiv_cocktail import *
 from .egg_delivery import *
+from .perfume_maker import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
