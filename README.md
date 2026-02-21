@@ -25,3 +25,4 @@ See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a vi
 - **Confidence Parking:** A short framework for holding views lightly while updating with evidence in [confidence_parking.md](confidence_parking.md).
 - **Taxing GUI:** Launch a simple desktop income-tax estimator with `python taxing_gui.py`.
 - **General Store:** A short overview of the role and evolution of community general stores in [general_store.md](general_store.md).
+- **Elkaloid Stan Research Center:** A fictional institute profile in [elkaloid_stan_research_center.md](elkaloid_stan_research_center.md).
