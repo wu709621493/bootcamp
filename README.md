@@ -23,6 +23,7 @@ See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a vi
 - **Brain Burst:** Direct link to the rapid ideation outline in [brain_burst.md](brain_burst.md).
 - **Bad Apple:** A short note on the phrase, proverb, and media reference in [bad_apple.md](bad_apple.md).
 - **Confidence Parking:** A short framework for holding views lightly while updating with evidence in [confidence_parking.md](confidence_parking.md).
+- **Bathing Willow Life:** A short reflection on resilient softness and renewal in [bathing_willow_life.md](bathing_willow_life.md).
 - **Taxing GUI:** Launch a simple desktop income-tax estimator with `python taxing_gui.py`.
 - **General Store:** A short overview of the role and evolution of community general stores in [general_store.md](general_store.md).
 - **Elkaloid Stan Research Center:** A fictional institute profile in [elkaloid_stan_research_center.md](elkaloid_stan_research_center.md).
