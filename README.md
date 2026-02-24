@@ -27,5 +27,6 @@ See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a vi
 - **Taxing GUI:** Launch a simple desktop income-tax estimator with `python taxing_gui.py`.
 - **General Store:** A short overview of the role and evolution of community general stores in [general_store.md](general_store.md).
 - **Dungeon Lumberjack:** A compact role guide for underground timbercraft in [dungeon_lumberjack.md](dungeon_lumberjack.md).
+- **Dispute Dipole Unit:** A compact conflict-resolution framework in [dispute_dipole_unit.md](dispute_dipole_unit.md).
 - **Elkaloid Stan Research Center:** A fictional institute profile in [elkaloid_stan_research_center.md](elkaloid_stan_research_center.md).
 - **Nicotine Receptor × Cold-shock Proteins:** Cross-reference note in [nicotine_receptor_cold_shock_proteins.md](nicotine_receptor_cold_shock_proteins.md).
