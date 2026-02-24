@@ -47,3 +47,9 @@ To build a personal dictionary, start with words that matter to you: family sayi
 - **Part of speech**: noun
 - **Definition**: A deliberately rigorous process of removal or refinement meant to leave only the most essential, clarifying elements behind.
 - **Example**: “The editorial team applied a stringent astringent extraction to the manuscript, leaving only the most resonant passages.”
+
+### Communist Party
+- **Part of speech**: noun
+- **Retranslation (Chinese, simplified)**: 共产党
+- **Retranslation (Chinese, traditional)**: 共產黨
+- **Note**: This refers to a political party organized around communist ideology.
