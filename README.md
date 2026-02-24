@@ -32,3 +32,4 @@ See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a vi
 - **Straight Ice Ring:** A short note on the paradoxical phrase and interpretations in [straight_ice_ring.md](straight_ice_ring.md).
 - **Elkaloid Stan Research Center:** A fictional institute profile in [elkaloid_stan_research_center.md](elkaloid_stan_research_center.md).
 - **Nicotine Receptor × Cold-shock Proteins:** Cross-reference note in [nicotine_receptor_cold_shock_proteins.md](nicotine_receptor_cold_shock_proteins.md).
+- **Protocol Cotton Wick (v5.16):** A compact quality-control and handling guide in [protocol_cotton_wick_version_5_16.md](protocol_cotton_wick_version_5_16.md).
