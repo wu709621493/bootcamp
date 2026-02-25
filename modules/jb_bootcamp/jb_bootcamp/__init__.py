@@ -52,6 +52,7 @@ from .notification import *
 from .hiv_cocktail import *
 from .egg_delivery import *
 from .perfume_maker import *
+from .colorless_map import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
