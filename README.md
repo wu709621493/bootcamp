@@ -36,3 +36,4 @@ See [jupyter_setup.md](jupyter_setup.md) for a quickstart guide to creating a vi
 - **Protocol Cotton Wick (v5.16):** A compact quality-control and handling guide in [protocol_cotton_wick_version_5_16.md](protocol_cotton_wick_version_5_16.md).
 - **Population Incision:** A short framework for precise subgroup analysis in [population_incision.md](population_incision.md).
 - **Conscience Module:** A compact preflight checklist for high-impact decisions in [conscience_module.md](conscience_module.md).
+- **Maid/Butler Concourse:** A short operations and design overview in [maid_butler_concourse.md](maid_butler_concourse.md).
