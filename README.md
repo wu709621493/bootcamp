@@ -40,5 +40,6 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Protocol Cotton Wick (v5.16):** A compact quality-control and handling guide in [protocol_cotton_wick_version_5_16.md](protocol_cotton_wick_version_5_16.md).
 - **Population Incision:** A short framework for precise subgroup analysis in [population_incision.md](population_incision.md).
 - **Conscience Module:** A compact preflight checklist for high-impact decisions in [conscience_module.md](conscience_module.md).
+- **Theseus’ Ship Face Rating Module:** A compact framework for perceived identity continuity under incremental change in [theseus_ship_face_rating_module.md](theseus_ship_face_rating_module.md).
 - **Maid/Butler Concourse:** A short operations and design overview in [maid_butler_concourse.md](maid_butler_concourse.md).
 - **Ganges River Female Infrastructure:** A practical framework for women-centered riverfront systems in [ganges_river_female_infrastructure.md](ganges_river_female_infrastructure.md).
