@@ -54,6 +54,7 @@ from .egg_delivery import *
 from .perfume_maker import *
 from .colorless_map import *
 from .happiness_formula_drinks import *
+from .toxicity import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
