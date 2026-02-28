@@ -47,6 +47,7 @@ _DRUG_CLASSES: dict[str, tuple[str, ...]] = {
 }
 
 _ANCHOR_PRIORITY: tuple[str, ...] = ("instis", "nnrtis", "pis")
+_DISCOURAGED_PI_AGENTS: tuple[str, ...] = ("lopinavir",)
 
 
 @dataclass(frozen=True)
@@ -99,11 +100,14 @@ def rebuild_hiv_cocktail(drugs: Sequence[str]) -> HIVCocktail:
 
     classified: dict[str, list[str]] = {key: [] for key in _DRUG_CLASSES}
     unknown: list[str] = []
+    filtered_discouraged_pis: list[str] = []
 
     for drug in normalised:
         class_name = classify_antiretroviral(drug)
         if class_name is None:
             unknown.append(drug)
+        elif class_name == "pis" and drug in _DISCOURAGED_PI_AGENTS:
+            filtered_discouraged_pis.append(drug)
         else:
             classified[class_name].append(drug)
 
@@ -132,6 +136,12 @@ def rebuild_hiv_cocktail(drugs: Sequence[str]) -> HIVCocktail:
         notes.append("No anchor agent detected (INSTI/NNRTI/PI).")
     if unknown:
         notes.append("Unknown agents were provided and are listed separately.")
+    if filtered_discouraged_pis:
+        notes.append(
+            "Discouraged PI agents were filtered out: "
+            + ", ".join(_dedupe(filtered_discouraged_pis))
+            + "."
+        )
 
     return HIVCocktail(
         backbone=backbone,
