@@ -44,3 +44,4 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Maid/Butler Concourse:** A short operations and design overview in [maid_butler_concourse.md](maid_butler_concourse.md).
 - **Ganges River Female Infrastructure:** A practical framework for women-centered riverfront systems in [ganges_river_female_infrastructure.md](ganges_river_female_infrastructure.md).
 - **Somatogram Sowing Machine:** A conceptual system for structured body-map symptom tracking in [somatogram_sowing_machine.md](somatogram_sowing_machine.md).
+- **Cure the Beef!:** A scientific game concept for learning prion-research rigor in [cure_the_beef_scientific_game.md](cure_the_beef_scientific_game.md).
