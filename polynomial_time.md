@@ -13,3 +13,14 @@ Polynomial time describes algorithms whose running time grows no faster than a p
 
 ## Comparing to exponential time
 Exponential-time algorithms (e.g., \(O(2^n)\)) become infeasible even for moderate \(n\). If a problem admits a polynomial-time algorithm, it is generally considered efficiently solvable, while exponential-time solutions are typically impractical except for very small inputs.
+
+
+## A playful astrology lens on P vs NP
+If we "observe" **P vs NP** through astrology, we should keep it in the realm of metaphor rather than evidence:
+
+- **P as the daily horoscope ritual:** You can compute the result quickly from known rules (date, sign, preset interpretations).
+- **NP as compatibility readings:** Given a completed chart interpretation, it is usually easy to check whether it follows the astrological rulebook; finding that interpretation from scratch may still be hard.
+- **P vs NP question in this metaphor:** If verifying a chart reading is easy, does that imply generating one is equally easy? Computer science does not know the answer in general.
+
+### Important boundary
+Astrology is not a scientific method for proving complexity-theory claims. Real progress on P vs NP depends on formal mathematics, proofs, and peer review—not celestial correlations.
