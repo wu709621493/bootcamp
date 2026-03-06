@@ -49,3 +49,4 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Cure the Beef!:** A scientific game concept for learning prion-research rigor in [cure_the_beef_scientific_game.md](cure_the_beef_scientific_game.md).
 - **Note of Money Awaiting Collection:** A practical reminder template for outstanding balances in [money_awaiting_collection_note.md](money_awaiting_collection_note.md).
 - **More Disabled Parking for Professors:** A concise campus accessibility proposal in [more_disabled_parking_for_professors.md](more_disabled_parking_for_professors.md).
+- **Miss a Sneeze:** A short reflection on noticing subtle early signals in [miss_a_sneeze.md](miss_a_sneeze.md).
