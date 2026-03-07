@@ -50,3 +50,4 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Note of Money Awaiting Collection:** A practical reminder template for outstanding balances in [money_awaiting_collection_note.md](money_awaiting_collection_note.md).
 - **More Disabled Parking for Professors:** A concise campus accessibility proposal in [more_disabled_parking_for_professors.md](more_disabled_parking_for_professors.md).
 - **Miss a Sneeze:** A short reflection on noticing subtle early signals in [miss_a_sneeze.md](miss_a_sneeze.md).
+- **Beer to Waffle:** A compact cooking note on using beer in waffle batter in [beer_to_waffle.md](beer_to_waffle.md).
