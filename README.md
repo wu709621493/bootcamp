@@ -25,6 +25,7 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 ## Quick references
 
 - **Brain Burst:** Direct link to the rapid ideation outline in [brain_burst.md](brain_burst.md).
+- **A Man Faces Weather with Underwear:** A short reflection on vulnerability, defiance, and preparation in [a_man_faces_weather_with_underwear.md](a_man_faces_weather_with_underwear.md).
 - **Bad Apple:** A short note on the phrase, proverb, and media reference in [bad_apple.md](bad_apple.md).
 - **Confidence Parking:** A short framework for holding views lightly while updating with evidence in [confidence_parking.md](confidence_parking.md).
 - **Bathing Willow Life:** A short reflection on resilient softness and renewal in [bathing_willow_life.md](bathing_willow_life.md).
