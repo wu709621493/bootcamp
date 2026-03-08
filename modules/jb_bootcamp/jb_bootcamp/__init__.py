@@ -58,6 +58,7 @@ from .toxicity import *
 from .parking_lot_search import *
 from .rolling_snowball import *
 from .bank_account import *
+from .vulnerability_projection import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
