@@ -31,6 +31,8 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Bathing Willow Life:** A short reflection on resilient softness and renewal in [bathing_willow_life.md](bathing_willow_life.md).
 - **Life Reload Feature:** A practical reset protocol for restoring focus and momentum in [life_reload_feature.md](life_reload_feature.md).
 - **Taxing GUI:** Launch a simple desktop income-tax estimator with `python taxing_gui.py`.
+- **Time Squared:** A compact note on compounding delay and acceleration of consequences in [time_squared.md](time_squared.md).
+
 - **General Store:** A short overview of the role and evolution of community general stores in [general_store.md](general_store.md).
 - **Calendar Motel:** A practical metaphor for keeping dated commitments temporary and actionable in [calendar_motel.md](calendar_motel.md).
 - **Fitting Room Charity:** A compact retail-based donation model in [fitting_room_charity.md](fitting_room_charity.md).
