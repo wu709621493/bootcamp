@@ -52,3 +52,5 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **More Disabled Parking for Professors:** A concise campus accessibility proposal in [more_disabled_parking_for_professors.md](more_disabled_parking_for_professors.md).
 - **Miss a Sneeze:** A short reflection on noticing subtle early signals in [miss_a_sneeze.md](miss_a_sneeze.md).
 - **Beer to Waffle:** A compact cooking note on using beer in waffle batter in [beer_to_waffle.md](beer_to_waffle.md).
+
+- **Zig-zag Dynamic Entropy Brake:** A compact control framework for restoring stability with alternating corrections in [zig_zag_dynamic_entropy_brake.md](zig_zag_dynamic_entropy_brake.md).
