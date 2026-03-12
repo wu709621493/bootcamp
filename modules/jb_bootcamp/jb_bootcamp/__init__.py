@@ -60,6 +60,7 @@ from .rolling_snowball import *
 from .bank_account import *
 from .vulnerability_projection import *
 from .gravitational_wave_frequency_coloring import *
+from .thunderstorm_promoter import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
