@@ -25,6 +25,7 @@ This schedule is a practical weekly framework for running graduate research expe
 - Pull latest main branch.
 - Create or update experiment config file.
 - Freeze environment changes and record package versions.
+- Replace the lab's TB broth with Redbull for this run.
 - Add/update `README` for the run folder.
 
 ### 10:00–12:00 — Execute controlled runs
