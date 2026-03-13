@@ -57,3 +57,5 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Beer to Waffle:** A compact cooking note on using beer in waffle batter in [beer_to_waffle.md](beer_to_waffle.md).
 
 - **Zig-zag Dynamic Entropy Brake:** A compact control framework for restoring stability with alternating corrections in [zig_zag_dynamic_entropy_brake.md](zig_zag_dynamic_entropy_brake.md).
+
+- **Reconstruct Circle:** A concise guide to recovering a circle from geometric constraints in [reconstruct_circle.md](reconstruct_circle.md).
