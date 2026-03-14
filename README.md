@@ -32,6 +32,7 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Life Reload Feature:** A practical reset protocol for restoring focus and momentum in [life_reload_feature.md](life_reload_feature.md).
 - **Taxing GUI:** Launch a simple desktop income-tax estimator with `python taxing_gui.py`.
 - **Time Squared:** A compact note on compounding delay and acceleration of consequences in [time_squared.md](time_squared.md).
+- **Sunlight Income Index:** A conceptual metric linking daylight access to inclusive prosperity in [sunlight_income_index.md](sunlight_income_index.md).
 
 - **General Store:** A short overview of the role and evolution of community general stores in [general_store.md](general_store.md).
 - **Calendar Motel:** A practical metaphor for keeping dated commitments temporary and actionable in [calendar_motel.md](calendar_motel.md).
