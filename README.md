@@ -60,3 +60,5 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Zig-zag Dynamic Entropy Brake:** A compact control framework for restoring stability with alternating corrections in [zig_zag_dynamic_entropy_brake.md](zig_zag_dynamic_entropy_brake.md).
 
 - **Reconstruct Circle:** A concise guide to recovering a circle from geometric constraints in [reconstruct_circle.md](reconstruct_circle.md).
+
+- **Cantonese Preservation Plan:** A practical roadmap for sustaining intergenerational use, education, media visibility, and policy support in [cantonese_preservation_plan.md](cantonese_preservation_plan.md).
