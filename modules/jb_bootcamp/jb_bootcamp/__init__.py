@@ -59,9 +59,9 @@ from .parking_lot_search import *
 from .rolling_snowball import *
 from .bank_account import *
 from .vulnerability_projection import *
-from .gravitational_wave_frequency_coloring import *
 from .thunderstorm_promoter import *
 from .liberator import *
+from .lip_fact_mining import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
