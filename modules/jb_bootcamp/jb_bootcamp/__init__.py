@@ -62,6 +62,7 @@ from .vulnerability_projection import *
 from .thunderstorm_promoter import *
 from .liberator import *
 from .lip_fact_mining import *
+from .temporary_visual_input_hijack import *
 
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
