@@ -65,3 +65,5 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Cantonese Preservation Plan:** A practical roadmap for sustaining intergenerational use, education, media visibility, and policy support in [cantonese_preservation_plan.md](cantonese_preservation_plan.md).
 
 - **UN Space Station Conference:** A policy and engineering framework for cooperative governance of multinational orbital stations in [un_space_station_conference.md](un_space_station_conference.md).
+
+- **Demonstration:** A short practical note on what makes a clear, reproducible demonstration in [demonstration.md](demonstration.md).
