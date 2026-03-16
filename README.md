@@ -66,4 +66,6 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 
 - **UN Space Station Conference:** A policy and engineering framework for cooperative governance of multinational orbital stations in [un_space_station_conference.md](un_space_station_conference.md).
 
+- **Combinational Poison Therapy:** A concise overview of multi-agent toxic therapy strategy, risks, and safeguards in [combinational_poison_therapy.md](combinational_poison_therapy.md).
+
 - **Demonstration:** A short practical note on what makes a clear, reproducible demonstration in [demonstration.md](demonstration.md).
