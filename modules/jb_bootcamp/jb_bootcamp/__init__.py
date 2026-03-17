@@ -67,3 +67,5 @@ from .temporary_visual_input_hijack import *
 __author__ = 'Justin Bois'
 __email__ = 'bois@caltech.edu'
 __version__ = '0.0.1'
+
+from .war_zone_commerce_model import *
