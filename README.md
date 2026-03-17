@@ -58,6 +58,8 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Mismatch Rematch Between Rural Chinese Students and Global Elites:** A concise framework on closing opportunity-interface gaps in [mismatch_rematch_between_rural_chinese_students_and_global_elites.md](mismatch_rematch_between_rural_chinese_students_and_global_elites.md).
 - **Beer to Waffle:** A compact cooking note on using beer in waffle batter in [beer_to_waffle.md](beer_to_waffle.md).
 
+- **Real-bodied News:** A concise framework for journalism that pairs evidence with human context in [real_bodied_news.md](real_bodied_news.md).
+
 - **Zig-zag Dynamic Entropy Brake:** A compact control framework for restoring stability with alternating corrections in [zig_zag_dynamic_entropy_brake.md](zig_zag_dynamic_entropy_brake.md).
 
 - **Reconstruct Circle:** A concise guide to recovering a circle from geometric constraints in [reconstruct_circle.md](reconstruct_circle.md).
