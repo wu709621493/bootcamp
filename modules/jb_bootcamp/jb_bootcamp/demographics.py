@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+import argparse
 from dataclasses import dataclass
 from datetime import date
 import math
 import re
-from typing import Iterable
+from typing import Iterable, Sequence
 
 __all__ = [
     "CohortBoundary",
@@ -14,6 +15,7 @@ __all__ = [
     "generation_from_birth_year",
     "generation_from_age",
     "DEFAULT_GENERATION_BOUNDARIES",
+    "main",
 ]
 
 
@@ -109,3 +111,36 @@ def generation_from_age(
 
     birth_year = reference_year - normalised_age
     return generation_from_birth_year(birth_year, boundaries=boundaries)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    """Provide a small CLI for shell-based generation lookups."""
+
+    parser = argparse.ArgumentParser(
+        description="Look up a generation label from an age or birth year."
+    )
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument(
+        "--age",
+        help="Age to convert into a generation label using the current year by default.",
+    )
+    source.add_argument(
+        "--birth-year",
+        type=int,
+        help="Birth year to convert into a generation label.",
+    )
+    parser.add_argument(
+        "--reference-year",
+        type=int,
+        help="Year used with --age; defaults to the current calendar year.",
+    )
+    args = parser.parse_args(list(argv) if argv is not None else None)
+
+    if args.birth_year is not None:
+        print(generation_from_birth_year(args.birth_year))
+    else:
+        print(generation_from_age(args.age, reference_year=args.reference_year))
+
+
+if __name__ == "__main__":
+    main()
