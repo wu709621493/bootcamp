@@ -67,6 +67,7 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Cantonese Preservation Plan:** A practical roadmap for sustaining intergenerational use, education, media visibility, and policy support in [cantonese_preservation_plan.md](cantonese_preservation_plan.md).
 
 - **UN Space Station Conference:** A policy and engineering framework for cooperative governance of multinational orbital stations in [un_space_station_conference.md](un_space_station_conference.md).
+- **Drift Net to Catch Space Debris:** A concept note on using guided orbital net systems to capture and dispose of debris in [drift_net_to_catch_space_debris.md](drift_net_to_catch_space_debris.md).
 
 - **Combinational Poison Therapy:** A concise overview of multi-agent toxic therapy strategy, risks, and safeguards in [combinational_poison_therapy.md](combinational_poison_therapy.md).
 
