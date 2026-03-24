@@ -76,3 +76,4 @@ Install or reinstall the `byte` module dependency with `python -m pip install --
 - **Migration:** A concise overview of why people move, the forms migration takes, and principles for humane policy in [migration.md](migration.md).
 - **One Cherry Blossom Tree:** A short reflection on how a single blossoming tree can transform a place in [one_cherry_blossom_tree.md](one_cherry_blossom_tree.md).
 - **Finger Tip to Equation Transformer:** A concept note on turning fingertip gestures and traced curves into editable mathematical expressions in [finger_tip_to_equation_transformer.md](finger_tip_to_equation_transformer.md).
+- **Evolution Engine:** A concise overview of variation, selection, fitness, and guardrails in iterative improvement systems in [evolution_engine.md](evolution_engine.md).
