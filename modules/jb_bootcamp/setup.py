@@ -12,6 +12,11 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
+    entry_points={
+        'console_scripts': [
+            'jb-demographics=jb_bootcamp.demographics:main',
+        ],
+    },
     classifiers=(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",

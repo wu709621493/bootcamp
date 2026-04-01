@@ -6,6 +6,7 @@ from jb_bootcamp.demographics import (
     CohortBoundary,
     generation_from_age,
     generation_from_birth_year,
+    main,
     normalise_age,
 )
 
@@ -65,3 +66,15 @@ def test_generation_from_birth_year_custom_boundaries():
 def test_generation_from_age_validates_reference_year():
     with pytest.raises(TypeError):
         generation_from_age(30, reference_year="2020")
+
+
+def test_main_outputs_generation_from_age(capsys):
+    main(["--age", "25", "--reference-year", "2024"])
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "generation_z"
+
+
+def test_main_outputs_generation_from_birth_year(capsys):
+    main(["--birth-year", "1985"])
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "millennial"
